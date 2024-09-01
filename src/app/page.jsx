@@ -1,6 +1,10 @@
 // pages/index.js
+import Navbar from "@/components/Navbar";
+
 export default function Home() {
   return (
+    <>
+    <Navbar />
     <div className="bg-white text-gray-900">
       {/* Main Section */}
       <main className="relative flex flex-col justify-center items-center h-screen bg-cover bg-center" style={{ backgroundImage: 'url(/assets/bg.jpg)' }}>
@@ -55,5 +59,6 @@ export default function Home() {
         </div>
       </section>
     </div>
+    </>
   );
 }
