@@ -76,7 +76,6 @@ export default function Sidebar() {
                         <a
                             href="/AdminHome"
                             className={`block p-3 rounded-lg border-blue-400 bg-blue-600 text-white hover:bg-blue-400 transition`}
-                            onClick={handleLogout}
                         >
                             <CiLogout className="inline mr-2 text-xl" /> Admin Page
                         </a>

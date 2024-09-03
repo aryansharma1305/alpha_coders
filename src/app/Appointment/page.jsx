@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import { db, doc, getDoc, setDoc, updateDoc } from '@/lib/firebase'; // Import necessary Firestore functions
 import { collection, addDoc } from 'firebase/firestore';
+import Image from 'next/image';
 
 export default function Appointment() {
   const [formData, setFormData] = useState({
@@ -116,47 +117,50 @@ export default function Appointment() {
   return (
     <div>
       <Navbar />
-      <main className="flex justify-center items-center h-screen bg-cover bg-center" style={{ backgroundImage: 'url(/assets/bg3.jpg)'}}>
-        <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-0"></div>
+      <main className="flex justify-between items-center h-screen w-full">
+        <div className="bg-blue-400 h-full w-1/2 flex justify-center items-center">
+          <Image src={"/assets/appointment-form.png"} alt='image' width={600} height={400}/>
+        </div>
+        <div className="w-1/2 flex flex-col justify-center items-center">
         <form
           onSubmit={handleSubmit}
-          className="bg-white p-6 rounded shadow-md w-5/6 max-w-3xl z-10"
+          className="bg-white p-6 rounded"
         >
-          <h2 className="text-2xl font-bold mb-4 text-center">Appointment Form</h2>
+          <h2 className="text-4xl font-bold mb-4 text-center">Appointment Form</h2>
 
           {error && <p className="text-red-500 mb-4">{error}</p>}
 
           <div className="mb-4">
-            <label className="block text-sm font-bold mb-2">Name:</label>
+            <label className="block text-md font-bold mb-2">Name:</label>
             <input
               type="text"
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full px-3 py-2 border rounded"
+              className="w-full px-3 py-2 border-2 rounded"
               required
             />
           </div>
-          <div className="flex gap-6">
-            <div className="mb-4">
-              <label className="block text-sm font-bold mb-2">Age:</label>
+          <div className="flex justify-between">
+            <div className="mb-4 w-40">
+              <label className="block text-md font-bold mb-2">Age:</label>
               <input
                 type="number"
                 name="age"
                 value={formData.age}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border rounded"
+                className="w-full px-3 py-2 border-2 rounded"
                 required
               />
             </div>
 
             <div className="mb-4">
-              <label className="block text-sm font-bold mb-2">Gender:</label>
+              <label className="block text-md font-bold mb-2">Gender:</label>
               <select
                 name="gender"
                 value={formData.gender}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border rounded"
+                className="w-full px-3 py-2 border-2 rounded"
                 required
               >
                 <option value="">Select Gender</option>
@@ -167,12 +171,12 @@ export default function Appointment() {
             </div>
           </div>
           <div className="mb-4">
-            <label className="block text-sm font-bold mb-2">Department:</label>
+            <label className="block text-md font-bold mb-2">Department:</label>
             <select
               name="department"
               value={formData.department}
               onChange={handleChange}
-              className="w-full px-3 py-2 border rounded"
+              className="w-full px-3 py-2 border-2 rounded"
               required
             >
               <option value="">Select Department</option>
@@ -183,27 +187,27 @@ export default function Appointment() {
             </select>
           </div>
           
-          <div className="flex gap-6">
+          <div className="flex justify-between">
             <div className="mb-4">
-              <label className="block text-sm font-bold mb-2">Appointment Date:</label>
+              <label className="block text-md font-bold mb-2">Appointment Date:</label>
               <input
                 type="date"
                 name="date"
                 value={formData.date}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border rounded"
+                className="w-full px-3 py-2 border-2 rounded"
                 required
               />
             </div>
 
             <div className="mb-4">
-              <label className="block text-sm font-bold mb-2">Appointment Time:</label>
+              <label className="block text-md font-bold mb-2">Appointment Time:</label>
               <input
                 type="time"
                 name="time"
                 value={formData.time}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border rounded"
+                className="w-full px-3 py-2 border-2 rounded"
                 required
               />
             </div>
@@ -216,6 +220,7 @@ export default function Appointment() {
             Submit
           </button>
         </form>
+        </div>
       </main>
     </div>
   );

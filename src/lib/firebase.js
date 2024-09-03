@@ -1,9 +1,9 @@
-import { getFirestore, doc, getDoc, setDoc, updateDoc, increment } from 'firebase/firestore';
+import { getFirestore, doc, getDoc, getDocs, setDoc, updateDoc, increment, collection, addDoc, deleteDoc } from 'firebase/firestore';
 import { getAuth } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAD2KydAkt5Xb7Ob53m2td-fhoFc2Hn9bc",
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API,
   authDomain: "hospital-management-7db12.firebaseapp.com",
   projectId: "hospital-management-7db12",
   storageBucket: "hospital-management-7db12.appspot.com",
@@ -17,7 +17,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
 
-export { auth, db, doc, getDoc, setDoc, updateDoc, increment };
+export { auth, db, doc, getDoc, getDocs, setDoc, updateDoc, increment, collection, addDoc, deleteDoc };
 
 // Function to get user data from Firestore
 export async function getUserData(uid) {
