@@ -13,7 +13,7 @@ export default function Home() {
         <Image src={"/assets/herobg.webp"} alt={"background"} width={540} height={450}/>
         </div>
         <div className="relative text-center p-4 w-1/2">
-          <h1 className="text-5xl font-bold mb-4 text-black">Welcome to the <span className="text-white">OPD System</span></h1>
+          <h1 className="text-6xl font-bold mb-4 text-black">Welcome to the <span className="text-blue-800">OPD System</span></h1>
           <p className="text-lg mb-8 text-black">
             Experience seamless and efficient outpatient care. Our system helps you manage appointments with ease, ensuring you receive the best healthcare possible.
           </p>

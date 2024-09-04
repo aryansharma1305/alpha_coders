@@ -1,12 +1,14 @@
 "use client";
 import Sidebar from '@/components/Sidebar';
-import { FaPrescriptionBottleAlt, FaExclamationTriangle, FaListAlt } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 import { db, collection, getDocs, doc, setDoc, deleteDoc } from '@/lib/firebase';
 import HospitalModal from '@/components/HospitalModal';
 import MedicineModal from '@/components/MedicineModal';
 
 import { MdDelete, MdEdit } from "react-icons/md";
+import { GiMedicines } from "react-icons/gi";
+import { CgDanger } from "react-icons/cg";
+import { HiOutlineRectangleGroup } from "react-icons/hi2";
 
 export default function PharmacyInventory() {
   const [medicineData, setMedicineData] = useState([]);
@@ -106,10 +108,10 @@ export default function PharmacyInventory() {
     <div className='flex'>
       <Sidebar />
       <div className="flex-1">
-        <div className="flex top-0 w-full bg-gray-100 p-6 justify-between">
-          <h1 className="text-2xl font-bold text-black">Pharmacy Management Inventory</h1>
+        <div className="flex top-0 w-full bg-blue-500 p-6 justify-between">
+          <h1 className="text-3xl font-semibold text-black">Pharmacy Management Inventory</h1>
           <div className="flex gap-4 items-center">
-            <p className='font-bold'>Selected Hospital: </p>
+            <p className='font-bold text-lg'>Selected Hospital: </p>
             <select value={selectedHospital} onChange={(e) => setSelectedHospital(e.target.value)} className="p-2 border-2 rounded-lg ">
               <option value="all">All Hospitals</option>
               {hospitals.map((hospital, index) => (
@@ -118,7 +120,7 @@ export default function PharmacyInventory() {
             </select>
             <button 
               onClick={() => setIsHospitalModalOpen(true)}
-              className="bg-blue-500 text-white p-2 rounded-lg"
+              className="bg-blue-700 hover:bg-blue-800 text-white p-2 rounded-lg transition"
             >
               Add Hospital
             </button>
@@ -127,26 +129,20 @@ export default function PharmacyInventory() {
       
         <div className="p-6 flex-1">
           <div className="mb-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div className="bg-blue-100 p-4 rounded-lg border-2 border-blue-300 flex flex-col items-center text-center">
-              <FaPrescriptionBottleAlt className="text-blue-500 text-7xl" />
-              <div>
-                <h3 className="text-lg font-semibold">Medicines Available</h3>
-                <p className="text-2xl">{medicinesAvailable}</p>
-              </div>
+            <div className="bg-purple-400 p-4 rounded flex flex-col justify-center items-center">
+              <GiMedicines className="text-white text-7xl" />
+                <h3 className="text-xl font-bold">Medicines Available</h3>
+                <p className="">{medicinesAvailable}</p>
             </div>
-            <div className="bg-red-100 p-4 rounded-lg border-2 border-red-300 flex flex-col items-center text-center">
-              <FaExclamationTriangle className="text-red-500 text-7xl" />
-              <div>
-                <h3 className="text-lg font-semibold">Medicine Shortage</h3>
-                <p className="text-2xl">{medicineShortage}</p>
-              </div>
+            <div className="bg-red-400 p-4 rounded flex flex-col justify-center items-center">
+              <CgDanger className="text-white text-7xl" />
+                <h3 className="text-xl font-bold">Medicine Shortage</h3>
+                <p className="">{medicineShortage}</p>
             </div>
-            <div className="bg-green-100 p-4 rounded-lg border-2 border-green-300 flex flex-col items-center text-center">
-              <FaListAlt className="text-green-500 text-7xl" />
-              <div>
-                <h3 className="text-lg font-semibold">Medicine Groups</h3>
-                <p className="text-2xl">{medicineGroups}</p>
-              </div>
+            <div className="bg-green-400 p-4 rounded flex flex-col justify-center items-center">
+              <HiOutlineRectangleGroup className="text-white text-7xl" />
+                <h3 className="text-xl font-bold">Medicine Groups</h3>
+                <p className="">{medicineGroups}</p>
             </div>
           </div>
 
@@ -160,7 +156,7 @@ export default function PharmacyInventory() {
                 Add New Medicine
               </button>
             </div>
-            <table className="w-full border-collapse">
+            <table className="w-full border border-gray-300">
               <thead>
                 <tr className="border-b">
                   <th className="p-2 text-left">ID</th>
@@ -202,7 +198,7 @@ export default function PharmacyInventory() {
           {/* Medicine Shortage Table */}
           <div className="bg-white border-2 border-gray-300 p-4 rounded-lg mb-6">
             <h2 className="text-xl font-semibold mb-4">Medicine Shortage</h2>
-            <table className="w-full border-collapse">
+            <table className="w-full border border-gray-300">
               <thead>
                 <tr className="border-b">
                   <th className="p-2 text-left">ID</th>
@@ -228,7 +224,7 @@ export default function PharmacyInventory() {
           {/* Medicine Groups Table */}
           <div className="bg-white border-2 border-gray-300 p-4 rounded-lg mb-6">
             <h2 className="text-xl font-semibold mb-4">Medicine Groups</h2>
-            <table className="w-full border-collapse">
+            <table className="w-full border border-gray-300">
               <thead>
                 <tr className="border-b">
                   <th className="p-2 text-left">Group Name</th>
