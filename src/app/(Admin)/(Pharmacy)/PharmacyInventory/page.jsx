@@ -33,7 +33,11 @@ export default function PharmacyInventory() {
         const allMedicines = [];
         for (const hospital of hospitals) {
           const medicinesSnapshot = await getDocs(collection(db, `hospitals/${hospital.id}/medicines`));
-          const medicinesList = medicinesSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+          const medicinesList = medicinesSnapshot.docs.map(doc => ({
+            id: doc.id,
+            hospital: hospital.id,  // Add hospital.id to each medicine object
+            ...doc.data(),
+          }));
           allMedicines.push(...medicinesList);
         }
         setMedicineData(allMedicines);
@@ -163,7 +167,8 @@ export default function PharmacyInventory() {
                   <th className="p-2 text-left">Name</th>
                   <th className="p-2 text-left">Quantity</th>
                   <th className="p-2 text-left">Group</th>
-                  <th className="p-2 text-left">Actions</th>
+                  {selectedHospital === "all" ? <th className="p-2 text-left">Hospital</th> : null}
+                  {selectedHospital === "all" ?  null : <th className="p-2 text-left">Actions</th>}
                 </tr>
               </thead>
               <tbody>
@@ -173,7 +178,8 @@ export default function PharmacyInventory() {
                     <td className="p-2">{med.name}</td>
                     <td className="p-2">{med.quantity}</td>
                     <td className="p-2">{med.group}</td>
-                    <td className="p-2">
+                    {selectedHospital === "all" ? <td className="p-2">{med.hospital}</td> : null}
+                    {selectedHospital === "all" ? null : <td className="p-2">
                       <button 
                         onClick={() => handleEditButtonClick(med)}
                         className="bg-yellow-400 text-white p-2 rounded-lg mr-2"
@@ -186,7 +192,7 @@ export default function PharmacyInventory() {
                       >
                         <MdDelete className='text-xl' />
                       </button>
-                    </td>
+                    </td>}
                   </tr>
                 ))}
               </tbody>
