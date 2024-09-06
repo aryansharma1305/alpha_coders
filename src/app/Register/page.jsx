@@ -6,6 +6,8 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import Navbar from '@/components/Navbar';
 import Image from 'next/image';
+import Footer from '@/components/Footer';
+
 
 export default function Register() {
   const [formData, setFormData] = useState({
@@ -138,6 +140,7 @@ export default function Register() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

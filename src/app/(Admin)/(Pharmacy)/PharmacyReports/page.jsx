@@ -195,12 +195,12 @@ export default function PharmacyReports() {
   return (
     <div className="flex h-screen">
       <Sidebar />
-      <div className="flex-1">
+      <div className="flex-1 overflow-y-auto max-h-screen">
         {/* Header */}
-        <div className="flex top-0 w-full bg-gray-100 p-6 justify-between">
-          <h1 className="text-2xl font-bold text-black">Pharmacy Management Report</h1>
+        <div className="flex top-0 w-full bg-blue-500 p-6 justify-between">
+          <h1 className="text-3xl font-bold text-black">Pharmacy Management Report</h1>
           <div className='flex items-center'>
-            <p className='text-md font-bold'>Selected Hospital:</p>
+            <p className='text-md font-bold mr-2'>Selected Hospital:</p>
             <select
               className="border border-gray-300 rounded-lg p-2 text-black"
               value={selectedHospital}

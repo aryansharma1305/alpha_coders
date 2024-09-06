@@ -105,9 +105,9 @@ export default function PharmacyInventory() {
   };
 
   return (
-    <div className='flex'>
+    <div className='flex h-screen'>
       <Sidebar />
-      <div className="flex-1">
+      <div className="flex-1 overflow-y-auto max-h-screen">
         <div className="flex top-0 w-full bg-blue-500 p-6 justify-between">
           <h1 className="text-3xl font-semibold text-black">Pharmacy Management Inventory</h1>
           <div className="flex gap-4 items-center">
@@ -129,7 +129,7 @@ export default function PharmacyInventory() {
       
         <div className="p-6 flex-1">
           <div className="mb-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div className="bg-purple-400 p-4 rounded flex flex-col justify-center items-center">
+            <div className="bg-indigo-400 p-4 rounded flex flex-col justify-center items-center">
               <GiMedicines className="text-white text-7xl" />
                 <h3 className="text-xl font-bold">Medicines Available</h3>
                 <p className="">{medicinesAvailable}</p>

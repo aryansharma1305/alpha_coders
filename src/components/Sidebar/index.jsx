@@ -15,19 +15,19 @@ export default function Sidebar() {
       };
 
     return (
-        <div className="w-64 bg-blue-500 text-white min-h-screen">
+        <div className="min-w-64 bg-gray-800 text-white h-screen flex flex-col">
             {/* Name Section */}
-            <div className="text-center bg-blue-600 px-4 py-6">
+            <div className="text-center bg-gray-900 px-4 py-6">
                 <h1 className="text-2xl font-bold">Pharmacy Admin</h1>
             </div>
 
             {/* Tabs */}
-            <nav className="h-full p-4">
+            <nav className="p-2 flex flex-col justify-between h-full">
                 <ul className="flex flex-col space-y-2">
                     <li>
                         <a
                             href="/Pharmacy"
-                            className={`block p-3 rounded-lg ${path === '/Pharmacy' ? 'bg-blue-700' : 'bg-blue-600'} text-white hover:bg-blue-400 transition`}
+                            className={`block p-3 rounded-lg ${path === '/Pharmacy' ? 'bg-gray-900 border-b-2 border-blue-500' : 'bg-gray-800'} text-white hover:bg-gray-700 transition`}
                         >
                             <FaHome className="inline mr-2" /> Dashboard
                         </a>
@@ -35,7 +35,7 @@ export default function Sidebar() {
                     <li>
                         <a
                             href="/PharmacyInventory"
-                            className={`block p-3 rounded-lg ${path === '/PharmacyInventory' ? 'bg-blue-700' : 'bg-blue-600'} text-white hover:bg-blue-400 transition`}
+                            className={`block p-3 rounded-lg ${path === '/PharmacyInventory' ? 'bg-gray-900 border-b-2 border-blue-500' : 'bg-gray-800'} text-white hover:bg-gray-700 transition`}
                         >
                             <FaBox className="inline mr-2" /> Inventory
                         </a>
@@ -43,7 +43,7 @@ export default function Sidebar() {
                     <li>
                         <a
                             href="/PharmacyReports"
-                            className={`block p-3 rounded-lg ${path === '/PharmacyReports' ? 'bg-blue-700' : 'bg-blue-600'} text-white hover:bg-blue-400 transition`}
+                            className={`block p-3 rounded-lg ${path === '/PharmacyReports' ? 'bg-gray-900 border-b-2 border-blue-500' : 'bg-gray-800'} text-white hover:bg-gray-700 transition`}
                         >
                             <FaChartLine className="inline mr-2" /> Reports
                         </a>
@@ -51,45 +51,47 @@ export default function Sidebar() {
                     <li>
                         <a
                             href="/PharmacyNotifications"
-                            className={`block p-3 rounded-lg ${path === '/PharmacyNotifications' ? 'bg-blue-700' : 'bg-blue-600'} text-white hover:bg-blue-400 transition`}
+                            className={`block p-3 rounded-lg ${path === '/PharmacyNotifications' ? 'bg-gray-900 border-b-2 border-blue-500' : 'bg-gray-800'} text-white hover:bg-gray-700 transition`}
                         >
                             <FaBell className="inline mr-2" /> Notifications
                         </a>
                     </li>
-                    <li>
-                        <a
-                            href="/PharmacySettings"
-                            className={`block p-3 rounded-lg ${path === '/PharmacySettings' ? 'bg-blue-700' : 'bg-blue-600'} text-white hover:bg-blue-400 transition`}
-                        >
-                            <FaCog className="inline mr-2" /> Settings
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="/PharmacyHelp"
-                            className={`block p-3 rounded-lg ${path === '/PharmacyHelp' ? 'bg-blue-700' : 'bg-blue-600'} text-white hover:bg-blue-400 transition`}
-                        >
-                            <FaQuestionCircle className="inline mr-2" /> Help
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="/AdminHome"
-                            className={`block p-3 rounded-lg border-blue-400 bg-blue-600 text-white hover:bg-blue-400 transition`}
-                        >
-                            <CiLogout className="inline mr-2 text-xl" /> Admin Page
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="/"
-                            className={`block p-3 rounded-lg border-2 border-red-400 bg-red-400 text-white hover:bg-red-500 transition`}
-                            onClick={handleLogout}
-                        >
-                            <CiLogout className="inline mr-2 text-xl" /> Logout
-                        </a>
-                    </li>
                 </ul>
+                <ul className="flex flex-col space-y-2">
+                        <li>
+                            <a
+                                href="/PharmacySettings"
+                                className={`block p-3 rounded-lg ${path === '/PharmacySettings' ? 'bg-gray-900 border-b-2 border-blue-500' : 'bg-gray-800'} text-white hover:bg-gray-700 transition`}
+                            >
+                                <FaCog className="inline mr-2" /> Settings
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="/PharmacyHelp"
+                                className={`block p-3 rounded-lg ${path === '/PharmacyHelp' ? 'bg-gray-900 border-b-2 border-blue-500' : 'bg-gray-800'} text-white hover:bg-gray-700 transition`}
+                            >
+                                <FaQuestionCircle className="inline mr-2" /> Help
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="/AdminHome"
+                                className={`block p-3 rounded-lg bg-gray-800 text-white hover:bg-gray-900 transition`}
+                            >
+                                <CiLogout className="inline mr-2 text-xl" /> Admin Page
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="/"
+                                className={`block p-3 rounded-lg text-red-400 bg-gray-800 hover:bg-red-500 hover:text-white transition`}
+                                onClick={handleLogout}
+                            >
+                                <CiLogout className="inline mr-2 text-xl" /> Logout
+                            </a>
+                        </li>
+                    </ul>
             </nav>
         </div>
     );

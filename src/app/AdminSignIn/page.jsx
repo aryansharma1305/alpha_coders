@@ -5,6 +5,8 @@ import { useRouter } from 'next/navigation';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
 import Image from 'next/image';
+import Footer from '@/components/Footer';
+
 
 export default function AdminSignIn() {
   const router = useRouter();
@@ -91,6 +93,7 @@ export default function AdminSignIn() {
         </div>
       </div>
     </div>
+    <Footer />
     </>
   );
 }

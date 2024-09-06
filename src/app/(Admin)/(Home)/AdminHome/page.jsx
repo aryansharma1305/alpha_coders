@@ -8,6 +8,8 @@ import { CgSandClock } from "react-icons/cg";
 import { FaBoxArchive, FaList  } from "react-icons/fa6";
 import Navbar from '@/components/Navbar';
 import Image from 'next/image';
+import Footer from '@/components/Footer';
+
 
 
 export default function Page() {
@@ -37,12 +39,12 @@ export default function Page() {
       <div className="min-h-screen flex flex-col justify-center items-center">
         <div className="flex justify-center items-center w-full h-full bg-blue-400 py-12">
           <Image src={"/assets/admin.webp"} alt='image' width={450} height={450}/>
-          <h1 className='text-7xl font-bold underline'>Admin Dashboard</h1>
+          <h1 className='text-7xl font-bold'>Admin Dashboard</h1>
         </div>
         <main className="container mx-auto p-6 bg-white rounded-b-lg m-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Monitor Queue */}
-            <div className="bg-white p-6 rounded-lg border-2 shadow-md flex flex-col justify-center items-center text-center hover:bg-gray-100 transition">
+            <div className="bg-white p-6 rounded-lg border-2  flex flex-col justify-center items-center text-center hover:bg-gray-100 transition">
               <HiQueueList className='text-9xl' />
               <h2 className="text-xl font-bold mb-4">Monitor Queue</h2>
               <p className="text-gray-700 mb-4">
@@ -54,7 +56,7 @@ export default function Page() {
             </div>
   
             {/* Change Wait Time */}
-            <div className="bg-white p-6 rounded-lg border-2 shadow-md text-center flex flex-col justify-center items-center hover:bg-gray-100 transition">
+            <div className="bg-white p-6 rounded-lg border-2  text-center flex flex-col justify-center items-center hover:bg-gray-100 transition">
               <CgSandClock className='text-9xl' />
               <h2 className="text-xl font-bold mb-4">Change Wait Time</h2>
               <p className="text-gray-700 mb-4">
@@ -66,7 +68,7 @@ export default function Page() {
             </div>
   
             {/* Pharmacy Management */}
-            <div className="bg-white p-6 rounded-lg border-2 shadow-md text-center flex flex-col justify-center items-center hover:bg-gray-100 transition">
+            <div className="bg-white p-6 rounded-lg border-2  text-center flex flex-col justify-center items-center hover:bg-gray-100 transition">
               <FaBoxArchive className='text-9xl'/>
               <h2 className="text-xl font-bold mb-4">Pharmacy Management</h2>
               <p className="text-gray-700 mb-4">
@@ -78,7 +80,7 @@ export default function Page() {
             </div>
   
             {/* Patient Lists */}
-            <div className="bg-white p-6 rounded-lg border-2 shadow-md text-center flex flex-col justify-center items-center hover:bg-gray-100 transition">
+            <div className="bg-white p-6 rounded-lg border-2  text-center flex flex-col justify-center items-center hover:bg-gray-100 transition">
               <FaList className='text-9xl' />
               <h2 className="text-xl font-bold mb-4">Patient Lists</h2>
               <p className="text-gray-700 mb-4">
@@ -91,6 +93,7 @@ export default function Page() {
           </div>
         </main>
         </div>
+        <Footer />
       </>
     );
   }

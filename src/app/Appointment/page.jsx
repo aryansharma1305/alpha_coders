@@ -4,6 +4,8 @@ import Navbar from '@/components/Navbar';
 import { db, doc, getDoc, setDoc, updateDoc } from '@/lib/firebase'; // Import necessary Firestore functions
 import { collection, addDoc } from 'firebase/firestore';
 import Image from 'next/image';
+import Footer from '@/components/Footer';
+
 
 export default function Appointment() {
   const [formData, setFormData] = useState({
@@ -110,6 +112,7 @@ export default function Appointment() {
             </div>
           </div>
         </main>
+        <Footer />
       </div>
     );
   }
@@ -222,6 +225,7 @@ export default function Appointment() {
         </form>
         </div>
       </main>
+      <Footer />
     </div>
   );
 }

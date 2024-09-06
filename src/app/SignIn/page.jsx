@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth, getUserData } from '@/lib/firebase';
 import Image from 'next/image';
+import Footer from '@/components/Footer';
 
 export default function SignIn() {
   const [formData, setFormData] = useState({
@@ -111,6 +112,7 @@ export default function SignIn() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

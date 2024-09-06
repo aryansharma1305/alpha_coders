@@ -231,7 +231,7 @@ export default function PharmacyManagement() {
   return (
     <div className="flex">
       <Sidebar />
-      <div className="w-full">
+      <div className="w-full overflow-y-auto max-h-screen">
         <div className="flex justify-between items-center bg-blue-500 p-6">
           <h1 className='text-3xl font-semibold'>Pharmacy Management Dashboard</h1>
           <div className="flex items-center">
@@ -243,7 +243,6 @@ export default function PharmacyManagement() {
               ))}
             </select>
           </div>
-        
         </div>
         <div className="p-6">
         <div className="mb-6">
