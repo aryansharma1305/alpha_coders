@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Line, Bar, Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, PointElement, LineElement, ArcElement, Title, Tooltip, Legend } from 'chart.js';
-import Sidebar from '@/components/Sidebar';
+import Sidebar from '@/components/PharmacySidebar';
 import { db } from '@/lib/firebase';
 import { collection, getDocs, setDoc, doc, deleteDoc, updateDoc } from 'firebase/firestore';
 import SalesModal from '@/components/SalesModal';

@@ -182,11 +182,15 @@ export default function Appointment() {
               className="w-full px-3 py-2 border-2 rounded"
               required
             >
-              <option value="">Select Department</option>
-              <option value="Ortho">Ortho</option>
-              <option value="Pedatric">Pedatric</option>
+              <option value="">Select Specialization</option>
+              <option value="Orthopedic">Orthopedic</option>
+              <option value="Pediatric">Pediatric</option>
               <option value="ENT">ENT</option>
               <option value="Dental">Dental</option>
+              <option value="Cardiology">Cardiology</option>
+              <option value="Neurology">Neurology</option>
+              <option value="General Medicine">General Medicine</option>
+              <option value="Surgery">Surgery</option>
             </select>
           </div>
           

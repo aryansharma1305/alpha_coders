@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import Sidebar from '@/components/Sidebar';
+import Sidebar from '@/components/PharmacySidebar';
 import { MdOutlineGppGood } from "react-icons/md";
 import { GiMedicines, GiMoneyStack  } from "react-icons/gi";
 import { AiFillMedicineBox } from "react-icons/ai";
@@ -25,10 +25,13 @@ export default function PharmacyManagement() {
 
   useEffect(() => {
     const fetchHospitals = async () => {
-      const hospitalsRef = collection(db, 'hospitals');
-      const hospitalsSnapshot = await getDocs(hospitalsRef);
-      const names = hospitalsSnapshot.docs.map(doc => doc.id);
-      setHospitalNames(names);
+      const hospitalsCollection = collection(db, "hospitals");
+        const hospitalSnapshot = await getDocs(hospitalsCollection);
+        const hospitalList = hospitalSnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setHospitalNames(hospitalList);
     };
 
     fetchHospitals();
@@ -238,8 +241,8 @@ export default function PharmacyManagement() {
             <p className='text-lg font-bold mr-2'>Selected Hospital:</p>
             <select value={selectedHospital} onChange={handleHospitalChange} className="p-2 border border-gray-300 rounded">
               <option value="All Hospitals">All Hospitals</option>
-              {hospitalNames.map(name => (
-                <option key={name} value={name}>{name}</option>
+              {hospitalNames.map(hospital => (
+                <option key={hospital.id} value={hospital.id}>{hospital.name}</option>
               ))}
             </select>
           </div>

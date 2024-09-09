@@ -58,12 +58,12 @@ export default function Page() {
             {/* Change Wait Time */}
             <div className="bg-white p-6 rounded-lg border-2  text-center flex flex-col justify-center items-center hover:bg-gray-100 transition">
               <CgSandClock className='text-9xl' />
-              <h2 className="text-xl font-bold mb-4">Change Wait Time</h2>
+              <h2 className="text-xl font-bold mb-4">Hospital Management</h2>
               <p className="text-gray-700 mb-4">
                 Adjust the estimated wait time for patient consultations to improve efficiency.
               </p>
-              <a href="/change-wait-time" className="inline-block bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition">
-                Adjust Time
+              <a href="/Hospitals" className="inline-block bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition">
+                Hospital Management
               </a>
             </div>
   
@@ -86,7 +86,7 @@ export default function Page() {
               <p className="text-gray-700 mb-4">
                 Access and view lists of patients, including their appointment history and details.
               </p>
-              <a href="/patient-lists" className="inline-block bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition">
+              <a href="/PatientLists" className="inline-block bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition">
                 View Patients
               </a>
             </div>

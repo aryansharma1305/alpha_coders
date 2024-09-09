@@ -1,8 +1,7 @@
 "use client";
-import Sidebar from '@/components/Sidebar';
+import Sidebar from '@/components/PharmacySidebar';
 import { useState, useEffect } from 'react';
 import { db, collection, getDocs, doc, setDoc, deleteDoc } from '@/lib/firebase';
-import HospitalModal from '@/components/HospitalModal';
 import MedicineModal from '@/components/MedicineModal';
 
 import { MdDelete, MdEdit } from "react-icons/md";
@@ -14,7 +13,6 @@ export default function PharmacyInventory() {
   const [medicineData, setMedicineData] = useState([]);
   const [selectedHospital, setSelectedHospital] = useState('all'); // Default to 'all'
   const [hospitals, setHospitals] = useState([]);
-  const [isHospitalModalOpen, setIsHospitalModalOpen] = useState(false);
   const [isMedicineModalOpen, setIsMedicineModalOpen] = useState(false);
   const [editingMedicine, setEditingMedicine] = useState(null);
 
@@ -57,12 +55,6 @@ export default function PharmacyInventory() {
   const medicinesAvailable = medicineData.length;
   const medicineShortage = medicineData.filter(med => med.quantity < 10).length;
   const medicineGroups = [...new Set(medicineData.map(med => med.group))].length;
-
-  const handleAddHospital = async (hospital) => {
-    const hospitalRef = doc(db, 'hospitals', hospital.name);
-    await setDoc(hospitalRef, {});
-    setHospitals([...hospitals, { id: hospital.name }]);
-  };
 
   const handleAddMedicine = async (medicine) => {
     if (selectedHospital) {
@@ -118,12 +110,6 @@ export default function PharmacyInventory() {
                 <option key={index} value={hospital.id}>{hospital.id}</option>
               ))}
             </select>
-            <button 
-              onClick={() => setIsHospitalModalOpen(true)}
-              className="bg-blue-700 hover:bg-blue-800 text-white p-2 rounded-lg transition"
-            >
-              Add Hospital
-            </button>
           </div>
         </div>
       
@@ -247,11 +233,6 @@ export default function PharmacyInventory() {
           </div>
         </div>
         
-        <HospitalModal 
-        isOpen={isHospitalModalOpen} 
-        onClose={() => setIsHospitalModalOpen(false)} 
-        onSave={handleAddHospital} 
-      />
       <MedicineModal 
         isOpen={isMedicineModalOpen} 
         onClose={() => setIsMedicineModalOpen(false)} 
