@@ -101,10 +101,11 @@ export default function DoctorsPage() {
   return (
     <div className="flex">
       <Sidebar />
-      <div className="w-full">
+      <div className="w-full overflow-y-auto max-h-screen">
         <header className="bg-blue-500 p-4 flex justify-between items-center w-full">
-          <h1 className="text-3xl font-semibold text-white">Doctors Management Dashboard</h1>
+          <h1 className="text-3xl font-semibold">Doctors Management Dashboard</h1>
           <div className="flex items-center">
+            <p className="mr-2 text-lg font-bold">Selected Hospital:</p>
             <select
               value={selectedHospital}
               onChange={(e) => setSelectedHospital(e.target.value)}
@@ -122,7 +123,7 @@ export default function DoctorsPage() {
                 setSelectedDoctor(null); // For new doctor
                 setIsModalOpen(true);
               }}
-              className="bg-green-500 text-white px-4 py-2 rounded"
+              className="bg-green-500 hover:bg-green-600 transition text-white px-4 py-2 rounded"
             >
               Add Doctor
             </button>
@@ -165,19 +166,19 @@ export default function DoctorsPage() {
                     {hospitals.find((hospital) => hospital.id === doctor.hospitalId)?.name || "Unknown"}
                   </td>
                   <td className="border px-4 py-2">{doctor.availability}</td>
-                  <td className="border px-4 py-2 flex space-x-2">
+                  <td className="border px-4 py-2 flex space-x-2 w-20">
                     <button
                       onClick={() => {
                         setSelectedDoctor(doctor);
                         setIsModalOpen(true);
                       }}
-                      className="bg-blue-500 text-white px-4 py-2 rounded flex items-center"
+                      className="bg-blue-500 hover:bg-blue-700 transition text-white px-4 py-2 rounded flex items-center"
                     >
                       <FaEdit className="mr-1" /> Edit
                     </button>
                     <button
                       onClick={() => deleteDoctor(doctor.id)}
-                      className="bg-red-500 text-white px-4 py-2 rounded flex items-center"
+                      className="bg-red-500 hover:bg-red-700 transition text-white px-4 py-2 rounded flex items-center"
                     >
                       <FaTrash className="mr-1" /> Delete
                     </button>

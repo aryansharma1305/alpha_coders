@@ -36,14 +36,14 @@ export default function Sidebar() {
                             <FaChartLine className="inline mr-2" /> Reports
                         </a>
                     </li>
-                    <li>
+                    {/* <li>
                         <a href="/PharmacyNotifications" className={`block p-3 rounded-lg ${path === '/PharmacyNotifications' ? 'bg-gray-900 border-b-2 border-blue-500' : 'bg-gray-800'} text-white hover:bg-gray-700 transition`}>
                             <FaBell className="inline mr-2" /> Notifications
                         </a>
-                    </li>
+                    </li> */}
                 </ul>
                 <ul className="flex flex-col space-y-2">
-                    <li>
+                    {/* <li>
                         <a href="/PharmacySettings" className={`block p-3 rounded-lg ${path === '/PharmacySettings' ? 'bg-gray-900 border-b-2 border-blue-500' : 'bg-gray-800'} text-white hover:bg-gray-700 transition`}>
                             <FaCog className="inline mr-2" /> Settings
                         </a>
@@ -52,7 +52,7 @@ export default function Sidebar() {
                         <a href="/PharmacyHelp" className={`block p-3 rounded-lg ${path === '/PharmacyHelp' ? 'bg-gray-900 border-b-2 border-blue-500' : 'bg-gray-800'} text-white hover:bg-gray-700 transition`}>
                             <FaQuestionCircle className="inline mr-2" /> Help
                         </a>
-                    </li>
+                    </li> */}
                     <li>
                         <a href="/AdminHome" className="block p-3 rounded-lg bg-gray-800 text-white hover:bg-gray-900 transition">
                             <CiLogout className="inline mr-2 text-xl" /> Admin Page

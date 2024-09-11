@@ -4,8 +4,10 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 import { HiQueueList } from "react-icons/hi2";
-import { CgSandClock } from "react-icons/cg";
-import { FaBoxArchive, FaList  } from "react-icons/fa6";
+import { FaRegHospital } from "react-icons/fa";
+import { MdOutlineInventory2 } from "react-icons/md";
+import { FaList  } from "react-icons/fa6";
+import { CiBoxes } from "react-icons/ci";
 import Navbar from '@/components/Navbar';
 import Image from 'next/image';
 import Footer from '@/components/Footer';
@@ -57,10 +59,10 @@ export default function Page() {
   
             {/* Change Wait Time */}
             <div className="bg-white p-6 rounded-lg border-2  text-center flex flex-col justify-center items-center hover:bg-gray-100 transition">
-              <CgSandClock className='text-9xl' />
+              <FaRegHospital className='text-9xl' />
               <h2 className="text-xl font-bold mb-4">Hospital Management</h2>
               <p className="text-gray-700 mb-4">
-                Adjust the estimated wait time for patient consultations to improve efficiency.
+                Access and view lists of hospitals, doctors, available beds, and occupancy details across all hospitals.
               </p>
               <a href="/Hospitals" className="inline-block bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition">
                 Hospital Management
@@ -69,7 +71,7 @@ export default function Page() {
   
             {/* Pharmacy Management */}
             <div className="bg-white p-6 rounded-lg border-2  text-center flex flex-col justify-center items-center hover:bg-gray-100 transition">
-              <FaBoxArchive className='text-9xl'/>
+              <MdOutlineInventory2 className='text-9xl'/>
               <h2 className="text-xl font-bold mb-4">Pharmacy Management</h2>
               <p className="text-gray-700 mb-4">
                 Manage pharmacy inventory, track medication stock, and update records.
