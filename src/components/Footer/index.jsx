@@ -1,57 +1,49 @@
 // components/Footer.js
-import Link from 'next/link';
+import { BsTwitterX, BsFacebook, BsInstagram  } from "react-icons/bs";
+
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-800 text-white py-12">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col items-start md:flex-row md:justify-between">
-          {/* Logo and Description */}
-          <div className="mb-6 md:mb-0">
-            <h2 className="text-2xl font-bold mb-2">OPD System</h2>
-            <p className="text-gray-400">Efficiently manage outpatient appointments with ease.</p>
-          </div>
-
-          {/* Navigation Links */}
-          <div className="flex flex-col mb-6">
-            <p className='underline mb-2'>Links</p>
-              <a className="text-gray-300 hover:underline mb-2 md:mb-0" href="/">Home</a>
-              <a className="text-gray-300 hover:underline mb-2 md:mb-0" href="/Appointment">Appointment</a>
-              <a className="text-gray-300 hover:underline" href="/about">About</a>
-          </div>
-
+    <footer className="bg-gray-900 text-white">
+      <div className="mx-auto px-4 py-6 flex flex-col justify-center items-center space-y-4">
+        <div className="flex flex-col mt-12">
           {/* Social Media Links */}
-          <div className="flex flex-col mb-6">
-          <p className='underline mb-2'>Social Links</p>
+          <div className="flex space-x-6">
             <a
               href="https://twitter.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-300 hover:text-white"
+              className="text-gray-200 hover:text-gray-500 transition text-4xl"
             >
-              Twitter
+              <BsTwitterX />
             </a>
             <a
               href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-300 hover:text-white"
+              className="text-gray-200 hover:text-gray-500 transition text-4xl"
             >
-              Facebook
+              <BsFacebook />
             </a>
             <a
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-300 hover:text-white"
+              className="text-gray-200 hover:text-gray-500 transition text-4xl"
             >
-              Instagram
+              <BsInstagram /> 
             </a>
           </div>
         </div>
-        <div className="text-center text-gray-400 mt-12">
-          <p>&copy; {new Date().getFullYear()} OPD System. All rights reserved.</p>
+        {/* Navigation Links */}
+        <div className="flex space-x-6">
+            <a className="text-gray-100 hover:text-gray-300 mb-2 md:mb-0 transition" href="/">Home</a>
+            <a className="text-gray-100 hover:text-gray-300 mb-2 md:mb-0 transition" href="/Appointment">Appointment</a>
+            <a className="text-gray-100 hover:text-gray-300 transition" href="/about">About</a>
         </div>
+      </div>
+      <div className="text-center text-gray-200 bg-gray-950 p-6">
+          <p>&copy; {new Date().getFullYear()} OPD System. All rights reserved.</p>
       </div>
     </footer>
   );

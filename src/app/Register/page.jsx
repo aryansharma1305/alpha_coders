@@ -1,11 +1,13 @@
 // pages/register.js
 "use client";
 import { useState } from 'react';
-import { useRouter } from 'next/router';
 import { auth, db } from '@/lib/firebase';  // Import Firebase auth and Firestore
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import Navbar from '@/components/Navbar';
+import Image from 'next/image';
+import Footer from '@/components/Footer';
+
 
 export default function Register() {
   const [formData, setFormData] = useState({
@@ -55,16 +57,18 @@ export default function Register() {
   return (
     <>
       <Navbar />
-      <div className="flex items-center justify-center h-screen bg-gray-100 bg-cover bg-center" style={{ backgroundImage: 'url(/assets/bg2.jpg)' }}>
-        <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-0"></div>
-        <div className="w-full max-w-md bg-white shadow-lg rounded-lg p-6 z-10">
-          <h2 className="text-2xl font-bold mb-6 text-center">Register</h2>
+      <div className="flex items-center justify-between h-screen w-full">
+        <div className="bg-blue-400 h-full w-1/2 flex justify-center items-center">
+          <Image src={"/assets/register.webp"} alt='image' width={450} height={450}/>
+        </div>
+        <div className="w-1/2 bg-white rounded-lg p-6 flex flex-col items-center justify-center">
+          <h2 className="text-4xl font-bold mb-6 text-center">Register New Account</h2>
 
           {message && <p className="text-center text-red-500 mb-4">{message}</p>}
 
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className='w-1/2'>
             <div className="mb-4">
-              <label className="block text-sm font-bold mb-2" htmlFor="name">
+              <label className="block text-md font-bold mb-2" htmlFor="name">
                 Name
               </label>
               <input
@@ -73,13 +77,13 @@ export default function Register() {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border rounded"
+                className="w-full px-3 py-2 border-2 rounded"
                 required
               />
             </div>
 
             <div className="mb-4">
-              <label className="block text-sm font-bold mb-2" htmlFor="email">
+              <label className="block text-md font-bold mb-2" htmlFor="email">
                 Email
               </label>
               <input
@@ -88,13 +92,13 @@ export default function Register() {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border rounded"
+                className="w-full px-3 py-2 border-2 rounded"
                 required
               />
             </div>
 
             <div className="mb-4">
-              <label className="block text-sm font-bold mb-2" htmlFor="password">
+              <label className="block text-md font-bold mb-2" htmlFor="password">
                 Password
               </label>
               <input
@@ -103,13 +107,13 @@ export default function Register() {
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border rounded"
+                className="w-full px-3 py-2 border-2 rounded"
                 required
               />
             </div>
 
             <div className="mb-4">
-              <label className="block text-sm font-bold mb-2" htmlFor="confirmPassword">
+              <label className="block text-md font-bold mb-2" htmlFor="confirmPassword">
                 Confirm Password
               </label>
               <input
@@ -118,7 +122,7 @@ export default function Register() {
                 name="confirmPassword"
                 value={formData.confirmPassword}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border rounded"
+                className="w-full px-3 py-2 border-2 rounded"
                 required
               />
             </div>
@@ -136,6 +140,7 @@ export default function Register() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

@@ -28,7 +28,7 @@ export default function WaitingTime() {
   }, []);
 
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-gray-100 rounded-lg shadow-md my-24">
+    <div className="max-w-3xl min-w-96 mx-auto p-6 bg-gray-100 rounded-lg shadow-md my-24">
       <h2 className="text-3xl font-bold mb-4">Waiting Time:</h2>
       {Object.entries(appointmentsByDepartment).map(([department, appointments]) => (
         <div key={department} className="mb-8">
@@ -36,7 +36,7 @@ export default function WaitingTime() {
           <table className="min-w-full bg-white mb-6">
             <thead>
               <tr>
-                <th className="py-2 px-4 border-b">Sl no</th>
+                <th className="py-2 px-4 border-b">S.no</th>
                 <th className="py-2 px-4 border-b">Appointment ID</th>
                 <th className="py-2 px-4 border-b">Patient Name</th>
                 <th className="py-2 px-4 border-b">Expected Time</th>

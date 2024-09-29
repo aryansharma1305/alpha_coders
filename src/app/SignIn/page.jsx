@@ -4,6 +4,8 @@ import Navbar from '@/components/Navbar';
 import { useRouter } from 'next/navigation';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth, getUserData } from '@/lib/firebase';
+import Image from 'next/image';
+import Footer from '@/components/Footer';
 
 export default function SignIn() {
   const [formData, setFormData] = useState({
@@ -55,14 +57,16 @@ export default function SignIn() {
   return (
     <>
       <Navbar />
-      <div className="flex items-center justify-center h-screen bg-cover bg-center" style={{ backgroundImage: 'url(/assets/bg2.jpg)' }}>
-        <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-0"></div>
-        <div className="w-full max-w-md bg-white shadow-lg rounded-lg p-6 z-10">
-          <h2 className="text-2xl font-bold mb-6 text-center">Sign In</h2>
+      <div className="flex items-center justify-between h-screen w-full">
+        <div className="bg-blue-400 h-full w-1/2 flex justify-center items-center">
+          <Image src={"/assets/signin.webp"} alt='image' width={450} height={450}/>
+        </div>
+        <div className="w-1/2 bg-white rounded-lg p-6 flex flex-col items-center justify-center">
+          <h2 className="text-4xl font-bold mb-6 text-center">Sign In To your Account</h2>
 
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className='w-1/2'>
             <div className="mb-4">
-              <label className="block text-sm font-bold mb-2" htmlFor="email">
+              <label className="block text-md font-bold mb-2" htmlFor="email">
                 Email
               </label>
               <input
@@ -71,13 +75,13 @@ export default function SignIn() {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border rounded"
+                className="w-full px-3 py-2 border-2 rounded "
                 required
               />
             </div>
 
             <div className="mb-4">
-              <label className="block text-sm font-bold mb-2" htmlFor="password">
+              <label className="block text-md font-bold mb-2" htmlFor="password">
                 Password
               </label>
               <input
@@ -86,7 +90,7 @@ export default function SignIn() {
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border rounded"
+                className="w-full px-3 py-2 border-2 rounded"
                 required
               />
             </div>
@@ -102,12 +106,13 @@ export default function SignIn() {
           {successMessage && <div className="mt-4 text-green-500 text-center">{successMessage}</div>}
           {error && <div className="mt-4 text-red-500 text-center">{error}</div>}
 
-          <div className="mt-6 flex justify-between">
+          <div className="flex justify-between w-full px-12 pt-12">
             <a className="text-blue-500 hover:underline" href="/Register">Register Account</a>
             <a className="text-blue-500 hover:underline" href="/AdminSignIn">Admin Sign In</a>
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
