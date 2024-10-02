@@ -16,8 +16,10 @@ export default function Navbar() {
     if (storedUserName && storedUserEmail) {
       setUserName(storedUserName);
       setUserEmail(storedUserEmail);
-      if(storedUserEmail === "admin@admin.com"){
-        setIsAdmin(true);
+      if (storedUserEmail === "admin@admin.com") {
+        setIsAdmin(true); // Admin user
+      } else {
+        setIsAdmin(false); // Regular user
       }
     }
   }, []);
@@ -54,14 +56,15 @@ export default function Navbar() {
                     <p className='text-xl font-bold capitalize'>{userName},</p>
                     <p className="text-sm font-semibold">{userEmail}</p>
                   </div>
-                  {isAdmin && (
-                    <a
-                      href="/AdminHome"
-                      className="block w-full text-left px-4 py-2 text-blue-600 hover:bg-blue-100 rounded-lg"
-                    >
-                      Dashboard
-                    </a>
-                  )}
+
+                  {/* Conditional Dashboard Link */}
+                  <a
+                    href={isAdmin ? "/AdminHome" : "/User"}
+                    className="block w-full text-left px-4 py-2 text-blue-600 hover:bg-blue-100 rounded-lg"
+                  >
+                    Dashboard
+                  </a>
+
                   <button
                     onClick={handleLogout}
                     className="w-full text-left px-4 py-2 text-red-600 hover:bg-red-100 rounded-lg"

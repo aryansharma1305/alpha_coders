@@ -109,6 +109,7 @@ export default function SignIn() {
           <div className="flex justify-between w-full px-12 pt-12">
             <a className="text-blue-500 hover:underline" href="/Register">Register Account</a>
             <a className="text-blue-500 hover:underline" href="/AdminSignIn">Admin Sign In</a>
+            <a className="text-blue-500 hover:underline" href="/DoctorSignIn">Doctor Login</a>
           </div>
         </div>
       </div>
